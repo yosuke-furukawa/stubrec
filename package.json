@@ -1,0 +1,27 @@
+{
+  "name": "stubrec",
+  "version": "0.0.0",
+  "description": "record stub json file",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yosuke-furukawa/stubrec"
+  },
+  "keywords": [
+    "stub",
+    "record",
+    "json"
+  ],
+  "author": "yosuke-furukawa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yosuke-furukawa/stubrec/issues"
+  },
+  "homepage": "https://github.com/yosuke-furukawa/stubrec",
+  "dependencies": {
+    "request": "^2.36.0"
+  }
+}
