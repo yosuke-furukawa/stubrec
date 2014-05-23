@@ -1,4 +1,4 @@
-Stubrec
+Stubrec [![Build Status](https://travis-ci.org/yosuke-furukawa/stubrec.svg?branch=master)](https://travis-ci.org/yosuke-furukawa/stubrec)
 ===============
 
 Stubrec records json file and proxy request and response.
