@@ -4,11 +4,11 @@ var http = require("http");
 var fs = require("fs");
 var assert = require("power-assert");
 
-describe('Stubrec request', function() {
+describe('Stubrec jsonrpc request', function() {
   var front, back;
   before(function(done) {
     front = http.createServer(function(req, res){
-      stubrec.record("./test/test.json", req, res);
+      stubrec.record("./test/jsonrpc.json", req, res);
     }).listen(3000);
     front.on("listening", function(){
       back = http.createServer(function(req, res){
@@ -25,20 +25,37 @@ describe('Stubrec request', function() {
     });
     back.close();
   });
-  
   it("should return hello.json", function(done){
-    http.get("http://localhost:3000/", function(res){
+    var opt = {
+      hostname: 'localhost',
+      port : 3000,
+      path : '/jsonrpc',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json' 
+      }
+    };
+    var req = http.request(opt, function(res){
       var data = '';
       res.on("data", function(chunk){
         data += chunk;
       });
       res.on("end", function(){
         assert.deepEqual(JSON.parse(data), JSON.parse('{"hello":"world"}'));
-        fs.readFile("./test/test.json", function(err, d) {
+        fs.readFile("./test/jsonrpc.json", function(err, d) {
           assert.deepEqual(JSON.parse(d), JSON.parse('{"hello":"world"}'));
           done();
         });
       });
     });
+    var reqBody = {
+      jsonrpc: 2.0,
+      method: 'sum',
+      id: 1,
+      params: [123, 456]
+    };
+    req.write(JSON.stringify(reqBody));
+    req.end();
   });
 });
+
