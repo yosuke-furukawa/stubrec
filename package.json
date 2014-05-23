@@ -1,6 +1,6 @@
 {
   "name": "stubrec",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "record stub json file",
   "main": "index.js",
   "scripts": {
