@@ -4,11 +4,14 @@
   "description": "record stub json file",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha --require intelli-espower-loader"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/yosuke-furukawa/stubrec"
+  },
+  "directories": {
+    "test": "test/"
   },
   "keywords": [
     "stub",
@@ -23,11 +26,11 @@
   "homepage": "https://github.com/yosuke-furukawa/stubrec",
   "dependencies": {
     "request": "~2.36.0",
-    "JSONStream": "~0.8.2",
-    "jspp-stream": "0.0.1"
+    "str-stream": "^0.1.1"
   },
   "devDependencies": {
-    "power-assert": "~0.7.2",
-    "mocha": "~1.19.0"
+    "intelli-espower-loader": "^0.1.0",
+    "mocha": "~1.19.0",
+    "power-assert": "~0.7.2"
   }
 }
