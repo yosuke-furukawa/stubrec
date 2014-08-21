@@ -1,5 +1,5 @@
 var Stubrec = require('../index');
-var stubrec = new Stubrec({proxy : "http://localhost:3001", debug : true});
+var stubrec = new Stubrec({target : "http://localhost:3001", debug : true});
 var http = require("http");
 var fs = require("fs");
 var assert = require("power-assert");
@@ -32,7 +32,7 @@ describe('Stubrec jsonrpc request', function() {
       path : '/jsonrpc',
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json' 
+        'Content-Type': 'application/json'
       }
     };
     var req = http.request(opt, function(res){
@@ -58,4 +58,3 @@ describe('Stubrec jsonrpc request', function() {
     req.end();
   });
 });
-
