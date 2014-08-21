@@ -1,5 +1,5 @@
 var Stubrec = require('../index');
-var stubrec = new Stubrec({proxy : "http://localhost:3001", debug : true});
+var stubrec = new Stubrec({target : "http://localhost:3001", debug : true});
 var http = require("http");
 var fs = require("fs");
 var getRawBody = require('raw-body');
@@ -36,7 +36,7 @@ describe('Stubrec hijack request body', function() {
       path : '/jsonrpc',
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json' 
+        'Content-Type': 'application/json'
       }
     };
     var req = http.request(opt, function(res){
@@ -62,5 +62,3 @@ describe('Stubrec hijack request body', function() {
     req.end();
   });
 });
-
-

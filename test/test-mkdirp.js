@@ -1,5 +1,5 @@
 var Stubrec = require('../index');
-var stubrec = new Stubrec({proxy : "http://localhost:3001", debug : true});
+var stubrec = new Stubrec({target : "http://localhost:3001", debug : true});
 var http = require("http");
 var fs = require("fs");
 var assert = require("power-assert");
@@ -40,7 +40,7 @@ describe('Stubrec request', function() {
     });
     back.close();
   });
-  
+
   it("should return hello.json", function(done){
     http.get("http://localhost:3000/", function(res){
       var data = '';
@@ -57,4 +57,3 @@ describe('Stubrec request', function() {
     });
   });
 });
-
